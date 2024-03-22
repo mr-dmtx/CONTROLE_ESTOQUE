@@ -1,0 +1,47 @@
+{{#if erros}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{erros.[0].msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+{{#if sucesso}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{sucesso}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+<div class="">
+  <form class="row g-2 d-flex justify-content-center" action="adicionarposto" method="post">
+    <h1 class="col-8 text-center">Adicionar posto</h1>
+    <div class="col-8">
+      <div class="form-floating mb-1">
+        <input type="text" class="form-control" id="txtNomePosto" name="nome" placeholder="Poupatempo Santos" required>
+        <label for="txtNomePosto">Nome posto</label>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="form-floating mb-1">
+        <input type="text" class="form-control" id="txtLoginPosto" name="login" placeholder="pptsv" required>
+        <label for="txtLoginPosto">Login posto</label>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="form-floating mb-1">
+        <input type="password" class="form-control" id="txtSenhaPosto" name="senha" placeholder="12345" required>
+        <label for="txtSenhaPosto">Senha posto</label>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="form-floating mb-1">
+        <input type="password" class="form-control" id="txtConfirmarSenha" name="confirmarSenha" placeholder="12345"
+          required>
+        <label for="txtConfirmarSenha">Confirmar senha</label>
+      </div>
+    </div>
+    <div class="col-8">
+      <button type="submit" class="btn btn-primary btn-lg mb-3">Adicionar</button>
+      <a class="btn btn-primary btn-lg mb-3" href="postos">Voltar</a>
+    </div>
+
+  </form>
+</div>

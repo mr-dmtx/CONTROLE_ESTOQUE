@@ -1,0 +1,28 @@
+{{#if erros}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{erros}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+<div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+<div class="card text-bg-danger me-3" style="max-width: 18rem;">
+  <a href="#">
+  <div class="card-header">Solicitações</div>
+  <div class="card-body">
+    <h5 class="card-title">0 SOLICITAÇÕES</h5>
+    <p class="card-text">Atender solicitações</p>
+  </div>
+  </a>
+</div>
+
+<div class="card text-bg-light me-3" style="max-width: 18rem;">
+  <a href="regional/postos">
+  <div class="card-header">Postos</div>
+  <div class="card-body">
+    <h5 class="card-title">{{qtPostos}} POSTOS</h5>
+    <p class="card-text">Gerenciar postos</p>
+  </div>
+</a>
+</div>
+</div>
+<hr>

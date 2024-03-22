@@ -1,0 +1,27 @@
+<a class="btn btn-primary btn-lg" href="adicionarposto">Adicionar posto</a>
+<hr>
+{{#if erros}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{error}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Login</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <h1>{{postos.nm_posto}}</h1>
+    {{#each postos}}
+    <tr>
+      <th scope="row">{{this.dataValues.nm_posto}}</th>
+      <td>{{this.dataValues.cd_posto}}</td>
+      <td><button class="btn btn-warning"><strong>Editar</strong> <i class="bi bi-pencil-square"></i></button></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
