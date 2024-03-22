@@ -1,5 +1,6 @@
 const localStrategy = require('passport-local').Strategy;
 const Regional = require("../models/regional");
+const Posto = require("../models/Posto");
 
 module.exports = function(passport){
   passport.use(new localStrategy({usernameField: 'txtLogin', passwordField: 'txtSenha'}, (id, senha, done) => {
@@ -22,10 +23,10 @@ passport.serializeUser((usuario, done) => {
   done(null, usuario.id)
 })
 
-passport.deSerializeUser((id, done) =>{
+/*passport.SerializeUser((id, done) =>{
   Regional.findByPk(id, (err, usuario) => {
     done(err, usuario)
   })
-})
+})*/
 
 }
