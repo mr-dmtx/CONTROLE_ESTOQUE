@@ -4,7 +4,8 @@
   "description": "controle do estoque de uniformes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "dmtx",
   "license": "ISC",
@@ -20,5 +21,14 @@
     "passport-local": "^1.0.0",
     "sequelize": "^6.37.1",
     "serverless-http": "^3.2.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr-dmtx/CONTROLE_ESTOQUE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mr-dmtx/CONTROLE_ESTOQUE/issues"
+  },
+  "homepage": "https://github.com/mr-dmtx/CONTROLE_ESTOQUE#readme"
 }
