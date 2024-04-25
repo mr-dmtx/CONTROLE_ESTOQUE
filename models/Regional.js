@@ -1,20 +1,23 @@
+const Posto = require('./Posto');
 const db = require('./db');
 
 const Regional = db.sequelize.define('regional', {
-  id_regional: {
+  regional_id: {
     type: db.Sequelize.DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  nm_regional: {
+  regional_nome: {
     type: db.Sequelize.DataTypes.STRING
   },
-  cd_regional: {
-    type: db.Sequelize.DataTypes.STRING
-  },
-  cd_senha: {
-    type: db.Sequelize.DataTypes.STRING
+  usuario_usuario_id: {
+    type: db.Sequelize.DataTypes.INTEGER,
+    references: {
+      model: "usuario",
+      key: "usuario_id"
+    }
   }
+
 },{
   freezeTableName: true,
   timestamps: false

@@ -1,0 +1,24 @@
+<h1>{{posto.dataValues.posto_nome}}</h1>
+<hr>
+<a class="btn btn-primary btn-lg mb-3" href="posto/adicionar/funcionario">Adicionar funcionário</a>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col"></th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+{{#each funcionarios}}
+    <tr>
+      <th scope="row">{{this.dataValues.funcionario_nome}}</th>
+      <td>{{this.dataValues.funcionario_sexo}}</td>
+      <td>
+        <button class="btn btn-primary"><strong>Ver</strong> <i class="bi bi-eye"></i></button>
+        <button class="btn btn-warning"><strong>Editar</strong> <i class="bi bi-pencil-square"></i></button>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+  </table>

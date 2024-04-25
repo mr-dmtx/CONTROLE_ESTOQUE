@@ -15,12 +15,15 @@
     </tr>
   </thead>
   <tbody>
-    <h1>{{postos.nm_posto}}</h1>
+    <h1>{{postos.posto_nome}}</h1>
     {{#each postos}}
     <tr>
-      <th scope="row">{{this.dataValues.nm_posto}}</th>
-      <td>{{this.dataValues.cd_posto}}</td>
-      <td><button class="btn btn-warning"><strong>Editar</strong> <i class="bi bi-pencil-square"></i></button></td>
+      <th scope="row">{{this.dataValues.posto_nome}}</th>
+      <td>{{this.dataValues.posto_id}}</td>
+      <td>
+        <button class="btn btn-primary"><strong>Ver</strong> <i class="bi bi-eye"></i></button>
+        <button class="btn btn-warning"><strong>Editar</strong> <i class="bi bi-pencil-square"></i></button>
+      </td>
     </tr>
     {{/each}}
   </tbody>

@@ -1,13 +1,15 @@
-//import RegionalController from '../controller/RegionalController';
 const express = require('express');
 const router = express.Router();
-const Postos = require("../models/Posto");
+const Posto = require("../models/Posto");
+const Usuario = require("../models/Usuario");
+const authorize = require("../helpers/acess_control.js");
 
 //pagina inicial regional
-router.get('/', (req,res)=>{
-  Postos.count({
+router.get('/', authorize("r"), (req,res)=>{
+  console.log(req.user.usuario_id);
+  Posto.count({
     where: {
-      regional_id_regional: 1
+      regional_regional_id: req.user.usuario_id
     }
   }).then(count => {
     res.render('regional/index', { qtPostos: count });
@@ -17,12 +19,13 @@ router.get('/', (req,res)=>{
 });
 
 //exibir postos
-router.get('/postos', (req,res)=>{
-  Postos.findAll({
-    where:{
-      regional_id_regional: 1
-    },
-    attributes: ['id_posto', 'nm_posto', 'cd_posto']
+router.get('/postos', authorize("r"), (req,res)=>{
+  Posto.findAll({
+    include: [{
+        model: Usuario,
+        required: true
+    }],
+    attributes: ['posto_id', 'posto_nome',]
   }).then(postos => {
     res.render('regional/postos', { postos });
   }).catch(error => {
@@ -34,11 +37,11 @@ router.get('/postos', (req,res)=>{
 });
 
 //add posto
-router.get('/adicionarposto', (req,res)=>{
+router.get('/adicionarposto', authorize("r"), (req,res)=>{
   res.render('regional/adicionarposto')
 });
 
-router.post('/adicionarposto', (req,res)=>{
+router.post('/adicionarposto', authorize("r"), async (req,res)=>{
   let erros = [];
   if(req.body.nome.length < 3){
     erros.push({msg: "Nome inválido! Deve ter mais de 3 caracteres!"});
@@ -57,20 +60,35 @@ router.post('/adicionarposto', (req,res)=>{
     res.render("regional/adicionarposto", {erros: erros});
   }
   else{
-    Postos.create({
-      nm_posto: req.body.nome,
-      cd_posto: req.body.login,
-      cd_senha: req.body.senha,
-      regional_id_regional: 1
-    }).then(function(){
-      res.render("regional/adicionarposto", {sucesso: req.body.nome + " foi adicionado com sucesso!"});
-    }).catch(function(error){
-      console.log(error);
-      erros.push({msg: "Erro ao adicionar posto tente novamente! " + error});
-      res.render("regional/adicionarposto", {erros: erros});
-    })
+
+    const existeUsuario = await Usuario.findOne({
+      where: { usuario_login: req.body.login}
+    });
+
+    if(existeUsuario === null){
+      await Usuario.create({
+        usuario_login: req.body.login,
+        usuario_hash_senha: req.body.senha,
+        usuario_cargo: "p"
+      });
+      const usuario = await Usuario.findOne({
+        where: { usuario_login: req.body.login}
+      });
+
+      await Posto.create({
+        posto_nome: req.body.nome,
+        usuario_usuario_id: usuario.usuario_id,
+        regional_regional_id: req.user.usuario_id
+      });
+      res.render("regional/adicionarposto", {sucesso: "Posto adicionado com sucesso!"});
+    }
+      else{
+        erros.push({msg: "Já existe um posto com esse login!"});
+        res.render("regional/adicionarposto", {erros: erros});
+      }
     
   }
+
 
 });
 

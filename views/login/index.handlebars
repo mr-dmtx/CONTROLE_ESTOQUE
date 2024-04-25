@@ -1,23 +1,30 @@
 <h1 class="text-center">Controle de Estoque</h1>
+{{#if error}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>{{error}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{else}}
 
+{{/if}}
 <form action="/login" method="post">
   <div class="mb-3">
     <label for="txtLogin" class="form-label">Login</label>
-    <input type="text" class="form-control" id="txtLogin" aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="txtLogin" name="txtLogin"  aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="txtSenha" class="form-label">Senha</label>
-    <input type="password" class="form-control" id="txtSenha">
+    <input type="password" class="form-control" id="txtSenha" name="txtSenha">
   </div>
   <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="txtPerfil" id="txtRegional" value="regional">
+    <input class="form-check-input" type="radio" name="txtPerfil" id="txtRegional" value="r" checked="checked">
     <label class="form-check-label" for="txtRegional">Regional</label>
   </div>
   <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="txtPerfil" id="txtPosto" value="posto">
+    <input class="form-check-input" type="radio" name="txtPerfil" id="txtPosto" value="p">
     <label class="form-check-label" for="txtPosto">Poupatempo</label>
   </div>
-   <div class="d-grid gap-2">
-    <button type="submit" class="btn btn-primary mb-3">Entrar</button>
+   <div class="d-grid gap-2 mt-3">
+    <button type="submit" class="btn btn-primary mb-3 btn-lg"><strong>Entrar</strong></button>
   </div>
 </form>
