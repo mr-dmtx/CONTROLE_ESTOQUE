@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"  # Comando para construir sua aplicação, se necessário
+  command = "npm start"  # Comando para construir sua aplicação, se necessário
 
 [dev]
   command = "npm start"       # Comando para iniciar sua aplicação localmente 
