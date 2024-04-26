@@ -1,5 +1,3 @@
 [build]
-  command = "npm run start"  # Comando para construir sua aplicação, se necessário
-
-[dev]
-  command = "npm start"       # Comando para iniciar sua aplicação localmente 
+  command = "npm run install"  # Comando para construir sua aplicação, se necessário
+  publish = "public"
