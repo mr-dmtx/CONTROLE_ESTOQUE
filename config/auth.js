@@ -1,5 +1,5 @@
 const localStrategy = require('passport-local').Strategy;
-const Regional = require("../models/regional");
+const Regional = require("../models/Regional");
 const Posto = require("../models/Posto");
 const Usuario = require("../models/Usuario");
 
