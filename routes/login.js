@@ -8,6 +8,7 @@ router.get('/', (req,res)=>{
     
   }
   else{
+    
     if(req.user.usuario_cargo == "r"){
       res.redirect('/regional');
     }

@@ -1,6 +1,6 @@
 const Usuarios = require('./Usuario');
 const db = require('./db');
-const Regional = require('./regional');
+const Regional = require('./Regional');
 
 const Posto = db.sequelize.define('posto', {
   posto_id: {

@@ -12,7 +12,7 @@ router.get('/', async (req,res)=>{
     where: { posto_posto_id: posto.dataValues.posto_id }
   });
   console.log(funcionarios);
-  res.render('posto/index', {posto, funcionarios});
+  res.render('posto/index', {funcionarios});
 });
 
 router.get('/adicionar/funcionario', async (req,res) =>{
