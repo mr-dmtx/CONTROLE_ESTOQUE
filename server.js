@@ -50,4 +50,6 @@ app.use('/', login);
 app.use('/regional', regional);
 app.use('/posto', posto);
 
-app.listen(process.env.port || 3000);
+app.listen(process.env.port || 3000, () =>{
+  console.log('servidor rodando na porta 3000 ou ' + process.env.port);
+});
