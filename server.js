@@ -9,6 +9,8 @@ const regional = require('./routes/regional');
 const login = require('./routes/login');
 const passport = require('passport');
 const posto = require('./routes/posto');
+const PORT = process.env.port || 3000;
+
 
 require("./config/auth")(passport);
 //#####configs#####
@@ -50,6 +52,6 @@ app.use('/', login);
 app.use('/regional', regional);
 app.use('/posto', posto);
 
-app.listen(process.env.port || 3000, () =>{
-  console.log('servidor rodando na porta 3000 ou ' + process.env.port);
+app.listen(PORT, () =>{
+  console.log('servidor rodando na porta ' + PORT);
 });
