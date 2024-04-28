@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Posto = require("../models/Posto");
 const Usuario = require("../models/Usuario");
+const Regional = require("../models/Regional");
 const authorize = require("../helpers/acess_control.js");
 
 //pagina inicial regional
@@ -21,10 +22,9 @@ router.get('/', authorize("r"), (req,res)=>{
 //exibir postos
 router.get('/postos', authorize("r"), (req,res)=>{
   Posto.findAll({
-    include: [{
-        model: Usuario,
-        required: true
-    }],
+    where:{
+      regional_regional_id: req.user.usuario_id
+    },
     attributes: ['posto_id', 'posto_nome',]
   }).then(postos => {
     res.render('regional/postos', { postos });
