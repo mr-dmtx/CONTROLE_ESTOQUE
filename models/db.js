@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-if(process.env.ENV == "prd"){
+if(process.env.PRODUCTION){
   const sequelize = new Sequelize('sql10702289', 'sql10702289', '8ZMeRm4FAZ', {
     host: "sql10.freemysqlhosting.net",
     dialect: "mysql",
