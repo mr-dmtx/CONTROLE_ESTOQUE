@@ -53,5 +53,5 @@ app.use('/regional', regional);
 app.use('/posto', posto);
 
 app.listen(PORT, () =>{
-  console.log('servidor rodando na porta ' + PORT);
+  console.log(`servidor ${process.env.PRODUCTION || 'LOCAL'} rodando na porta ${PORT}`);
 });
