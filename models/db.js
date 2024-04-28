@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-if(process.env.NODE_ENV == "production"){
+if(process.env.ENV == "prd"){
   const sequelize = new Sequelize('sql10702289', 'sql10702289', '8ZMeRm4FAZ', {
     host: "sql10.freemysqlhosting.net",
     dialect: "mysql",
@@ -30,17 +30,3 @@ module.exports = {
 }
 
 }
-//teste
-
-
-
-//producao
-/*const sequelize = new Sequelize('sql10693318', 'sql10693318', 'rQl6agvMWu', {
-  host: "sql10.freemysqlhosting.net",
-  dialect: "mysql",
-  define: {
-    // Desativar a pluralização global
-    freezeTableName: true
-}
-});*/
-
