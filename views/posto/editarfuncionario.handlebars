@@ -1,0 +1,36 @@
+{{#if erros}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{erros.[0].msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+{{#if sucesso}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{sucesso}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+<div class="">
+  <form class="row g-2 d-flex justify-content-center" action="" method="post">
+    <h1 class="col-8 text-center">Editar funcionario</h1>
+    <div class="col-8">
+      <div class="form-floating mb-1">
+        <input type="text" class="form-control" value="{{funcionario.dataValues.funcionario_nome}}" ="txtNomePosto" name="nome" placeholder="Poupatempo Santos" required>
+        
+        <label for="txtNomePosto">Nome:</label>
+      </div>
+    </div>
+    <div class="col-8">
+      <select class="form-select form-select-lg mb-3" id="dbSexoFuncionario" name="sexo" aria-label="Selecione o sexo" required>
+      <option selected>Escolher sexo:</option>
+      <option value="f">Feminino</option>
+      <option value="m">Masculino</option>
+    </select>
+    </div>
+    <div class="col-8">
+      <button type="submit" class="btn btn-warning btn-lg mb-3">Salvar edição</button>
+      <a class="btn btn-primary btn-lg mb-3" href="/posto">Voltar</a>
+    </div>
+
+  </form>
+</div>

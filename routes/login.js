@@ -26,4 +26,12 @@ router.post("/login", (req, res, next) => {
     failureRedirect: "/",
   })(req, res, next)
 })
+
+router.get("/logout", (req, res, next) => {
+  req.logout(req.user, err =>{
+    if(err) return next(err);
+    res.render('login/index');
+  });
+});
+
 module.exports = router;
